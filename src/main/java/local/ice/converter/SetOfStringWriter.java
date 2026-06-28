@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
+
 @WritingConverter
 @AllArgsConstructor
 public class SetOfStringWriter implements Converter<Set<String>, PGobject> {

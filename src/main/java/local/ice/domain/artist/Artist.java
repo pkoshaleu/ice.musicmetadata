@@ -18,9 +18,9 @@ import java.util.UUID;
 public class Artist implements Persistable<UUID> {
 
     @Id private final UUID id;
-    @Getter private String title;
-    @Getter @Column("artist_type") private ArtistType type;
-    @Getter private Set<String> variations;
+    @Getter private final String title;
+    @Getter @Column("artist_type") private final ArtistType type;
+    @Getter private final Set<String> variations;
 
     @Transient
     private boolean isNew;

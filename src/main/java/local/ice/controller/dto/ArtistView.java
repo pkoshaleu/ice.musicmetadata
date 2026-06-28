@@ -1,4 +1,4 @@
-package local.ice.controller;
+package local.ice.controller.dto;
 
 import local.ice.domain.artist.Artist;
 

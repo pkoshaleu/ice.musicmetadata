@@ -1,0 +1,26 @@
+{
+  "operations": [
+    {
+      "type": "addRelease",
+      "alias": "release-0",
+      "title": "Best of The Best",
+      "releaseType": "ALBUM",
+      "releaseDate": "2026-06-28",
+      "genres": ["pop-rock"]
+    },
+    {
+      "type": "addReleaseCredit",
+      "release": {"alias": "release-0"},
+      "artist": {"id": "00000000-0000-7000-0010-000000000001"},
+      "position": 1,
+      "role": "Main Artist"
+    },
+    {
+      "type": "addTrack",
+      "release": {"alias": "release-0"},
+      "position": 1,
+      "performance": {"id": "00000000-0000-7000-0040-000000000003"}
+    }
+  ],
+  "correlationId": 2
+}

@@ -7,24 +7,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import local.ice.controller.dto.ArtistView;
-import local.ice.service.artist.ArtistSearchService;
+import local.ice.domain.composition.Composition;
+import local.ice.service.CompositionSearchService;
 
 import java.util.UUID;
 
-@RestController
-@RequestMapping("/artists")
-@AllArgsConstructor
-public class ArtistController {
 
-    private final ArtistSearchService artistService;
+@RestController
+@RequestMapping("/compositions")
+@AllArgsConstructor
+public class CompositionController {
+
+    private final CompositionSearchService searchService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<ArtistView> getOne(
+    public ResponseEntity<Composition> getOne(
             @PathVariable UUID id
     ) {
-        return artistService.getOne(id)
-                .map(ArtistView::map)
+        return searchService.getOne(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

@@ -1,0 +1,10 @@
+{
+  "operations": [
+    {
+      "type": "addVariation",
+      "artist": {"id": "00000000-0000-7000-0010-000000000001"},
+      "variation": "Q"
+    }
+  ],
+  "correlationId": 1
+}

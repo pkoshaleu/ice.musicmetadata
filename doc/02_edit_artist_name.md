@@ -1,7 +1,7 @@
 # Edit Artist Name
 
-As a user, you should be able to edit an artist's name to accommodate instances where artists 
-have multiple aliases.
+As a user, you should be able to edit an artist's name to accommodate instances
+where artists have multiple aliases.
 
 ## Analysis
 
