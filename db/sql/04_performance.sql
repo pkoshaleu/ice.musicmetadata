@@ -32,9 +32,14 @@ CREATE TABLE performance_credit
     CONSTRAINT composition_credit_role_len CHECK (char_length(role) <= 255)
 );
 
+CREATE INDEX performance_credit_artist_id_idx ON performance_credit (artist_id);
+
 INSERT INTO performance_credit (id, performance_id, position, artist_id, role)
 VALUES
     (u('41', '1'), u('40', '1'), 1, u('10', '1'), 'Main Artist'),
-    (u('41', '2'), u('40', '2'), 1, u('10', '1'), 'Main Artist'),
-    (u('41', '3'), u('40', '3'), 1, u('10', '1'), 'Main Artist'),
-    (u('41', '4'), u('40', '4'), 1, u('10', '2'), 'Main Artist');
+    (u('41', '2'), u('40', '1'), 1, u('10', '2'), 'Performer'),
+    (u('41', '3'), u('40', '2'), 1, u('10', '1'), 'Main Artist'),
+    (u('41', '4'), u('40', '2'), 1, u('10', '2'), 'Performer'),
+    (u('41', '5'), u('40', '3'), 1, u('10', '1'), 'Main Artist'),
+    (u('41', '6'), u('40', '3'), 1, u('10', '2'), 'Performer'),
+    (u('41', '7'), u('40', '4'), 1, u('10', '2'), 'Main Artist');

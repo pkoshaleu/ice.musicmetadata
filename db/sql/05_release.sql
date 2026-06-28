@@ -28,6 +28,8 @@ CREATE TABLE music_release_credit
     CONSTRAINT composition_credit_role_len CHECK (char_length(role) <= 255)
 );
 
+CREATE INDEX music_release_credit_artist_id_idx ON music_release_credit (artist_id);
+
 INSERT INTO music_release_credit (id, release_id, position, artist_id, role)
 VALUES
     (u('51', '1'), u('50', '1'), 1, u('10', '1'), 'Main Artist'),
@@ -41,6 +43,8 @@ CREATE TABLE music_release_track
     position INT NOT NULL,
     performance_id UUID NOT NULL REFERENCES performance(id)
 );
+
+CREATE INDEX music_release_track_performance_id_idx ON music_release_track (performance_id);
 
 INSERT INTO music_release_track (id, release_id, position, performance_id)
 VALUES

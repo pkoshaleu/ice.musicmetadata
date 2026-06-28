@@ -26,6 +26,8 @@ CREATE TABLE composition_credit
     CONSTRAINT composition_credit_role_len CHECK (char_length(role) <= 255)
 );
 
+CREATE INDEX composition_credit_artist_id_idx ON composition_credit (artist_id);
+
 INSERT INTO composition_credit (id, composition_id, position, artist_id, role)
 VALUES
     (u('31', '1'), u('30', '1'), 1, u('10', '4'), 'Composer'),

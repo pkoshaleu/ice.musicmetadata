@@ -1,14 +1,16 @@
 package local.ice.service;
 
-
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import local.ice.controller.dto.PerformanceSummary;
 import local.ice.domain.performance.Performance;
 import local.ice.repository.PerformanceRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
 
 @Service
 @AllArgsConstructor
@@ -18,6 +20,15 @@ public class PerformanceSearchService {
 
     public Optional<Performance> getOne(UUID id) {
         return repository.findById(id);
+    }
+
+    public List<PerformanceSummary> findCreditedTo(UUID artistId, String role) {
+        if (role == null || role.isBlank()) {
+            return repository.findAllCreditedTo(artistId);
+        } else {
+            CreditRoleFilter filter = CreditRoleFilter.from(role);
+            return repository.findAllCreditedToWithRole(artistId, filter.creditRole());
+        }
     }
 
 }
