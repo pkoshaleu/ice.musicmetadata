@@ -23,7 +23,7 @@ One exceptional case must be handled differently. When an artist decides to rena
 eg `Polka Tulk Blues Band` to `Black Sabbath`, `Relation` has to be used to track these changes.
 I believe all work done under previous name should stay connected to the previous name.
 
-## Implementation
+## Implementation (old and removed)
 
 `variation` is a part of `Artist` domain:
 
@@ -55,5 +55,18 @@ HTTP/1.1 200
         "Queen UK",
         "Queen Band"
     ]
+}
+```
+
+## Implementation
+
+User has to submit `addVariation` command (payload in `reqs\add_variation.json`):
+
+```
+$ http POST localhost:8080/catalog/update < doc/reqs/add_variation.json
+HTTP/1.1 200 
+
+{
+    "aliases": {}
 }
 ```

@@ -25,8 +25,8 @@ public class ArtistOtdService {
 
     public Optional<Artist> pickNext() {
         if (rotation.isEmpty()) {
+            lock.lock();
             try {
-                lock.lock();
                 if (rotation.isEmpty()) {
                     shuffle();
                 }
@@ -38,8 +38,8 @@ public class ArtistOtdService {
         for (int i = 0; i < attempts; i++) {
             UUID id = rotation.poll();
             if (id == null) {
+                lock.lock();
                 try {
-                    lock.lock();
                     if (rotation.isEmpty()) {
                         shuffle();
                     }

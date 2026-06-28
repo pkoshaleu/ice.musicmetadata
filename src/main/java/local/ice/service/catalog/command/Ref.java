@@ -12,7 +12,7 @@ public record Ref(
 
     public Ref(String alias, UUID id) {
         if (alias == null && id == null) {
-            throw new IllegalArgumentException("One of Ref should be not null");
+            throw new IllegalArgumentException("Either alias or id should be specified");
         }
         this.alias = alias;
         this.id = id;
