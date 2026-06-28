@@ -30,30 +30,30 @@ Rules:
 
 ## `Composition`
 
-Original piece of music in broad definition, which may has melody and lyric. Or may have not.
-Any artist connected with composition has to be considered as creator of it.
+Original piece of music in the broad sense, which may have a melody and lyrics. Or may have neither.
+Any artist connected with a composition has to be considered a creator of it.
 
 Rules:
 - should have at least one artist connected;
 - should have a title;
 
-## `Performace`
+## `Performance`
 
 Specific execution of `Composition`, live or in studio.
 
 Rules:
-- any artist connected with composition has to be considered as performer of it;
+- any artist connected with a performance has to be considered a performer of it;
 - may have different to parent `Composition` title;
 - should have duration (stored as seconds)
 - may have genre(s) assigned;
 
 ## `Release`
 
-Published to public music release, physically or digitally. Catch generic information about release.
+Music released to the public, physically or digitally. Captures generic information about the release.
 
 - may have release artist or artist=0 as a sign of Various;
 - should have a title;
-- should have a type: Album, Single, Box
+- should have a type: Album, Single, EP, Live
 
 ## `Edition` (not implemented, merged with Release ¯\(°_o)/¯)
 
@@ -63,9 +63,16 @@ Specific execution of `Release`
 - may have location;
 
 ## `[type]Credit`
-Link between `[type]` (one of Composition, Performance, Release) and Artist;
+Link between `[type]` (one of `Composition`, `Performance`, `Release`) and `Artist`, carrying a role.
+
+The role's meaning depends on the layer:
+- `Composition` — authorship, e.g. `Composer`;
+- `Performance` — `Main Artist` (principal act) or `Performer`, `Featured` etc;
+- `Release` — billing, e.g. `Main Artist`.
+
+`Main Artist` is the principal credit; the search API exposes it via the logical filter `role=principal`.
 
 ## `Track`
-Link between `Edition` and `Performace`
+Link between `Release` and `Performance`
 
-may have coordinates as {Alpha} or {digit.digits}
+- may have coordinates as {Alpha} or {digit.digits} (not implemented)

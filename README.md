@@ -9,4 +9,4 @@ Design and implement a system that provides the following user experiences:
 - Fetch Artist Tracks;
 - Artist of the Day.
 
-## Assumptions
+
