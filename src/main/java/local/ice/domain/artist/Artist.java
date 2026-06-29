@@ -58,9 +58,8 @@ public class Artist implements Persistable<UUID> {
         }
         String normalized = variation.trim(); //TODO: normalize to NFKC
 
-        boolean exists = variations.stream()
-                .anyMatch(existing -> existing.equalsIgnoreCase(normalized));
-        exists = exists && (title.equalsIgnoreCase(normalized));
+        boolean exists = title.equalsIgnoreCase(normalized)
+                || variations.stream().anyMatch(existing -> existing.equalsIgnoreCase(normalized));
 
         if (exists) {
             throw new IllegalArgumentException("Artist variation already exists");
